@@ -1,10 +1,20 @@
 import time
 from machine import Pin
 
-def debounce(pin):
-    # Do something
-    print("PUSH")
-    time.sleep_ms(300)
+pin0 = Pin(0, Pin.IN, Pin.PULL_UP)
 
-p = Pin(0, Pin.IN, Pin.PULL_UP)
-p.irq(trigger=Pin.IRQ_FALLING, handler=debounce)
+
+def callback(pin):
+    # disable callback
+    pin.irq(trigger=False)
+    print("PUSH")
+    time.sleep_ms(200)
+    #re-enable callback
+    irq(pin)
+
+def irq(pin):
+    pin.irq(trigger=Pin.IRQ_FALLING, handler=callback)
+
+# Initial irq setup
+irq(pin0)
+print("Push the button!")
