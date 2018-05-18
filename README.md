@@ -20,7 +20,7 @@ bin/rshell
 Layout
 ======
 
-`bin/` - commands to help set up and control a wemos d1 mini.
-'python/` - misc samples and examples for common tasks.
-'udev/` - udev rules for creating devices with friendly names and setting permissions.
+* `bin/` - commands to help set up and control a wemos d1 mini.
+* `python/` - misc samples and examples for common tasks.
+* `udev/` - udev rules for creating devices with friendly names and setting permissions.
 
