@@ -1,0 +1,5 @@
+#!/bin/bash
+DEV_ID=${1:-1}
+source venv/bin/activate
+
+$VIRTUAL_ENV/bin/rshell -e vim --buffer-size 30 -p /dev/wemos${DEV_ID}
