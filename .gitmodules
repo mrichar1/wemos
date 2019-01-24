@@ -1,3 +1,9 @@
 [submodule "python/sht30"]
 	path = python/sht30
 	url = https://github.com/rsc1975/micropython-sht30
+[submodule "python/hx711"]
+	path = python/hx711
+	url = https://github.com/SergeyPiskunov/micropython-hx711
+[submodule "python/micropython-bmp180"]
+	path = python/bmp180
+	url = https://github.com/micropython-IMU/micropython-bmp180
