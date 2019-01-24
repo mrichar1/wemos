@@ -4,6 +4,6 @@
 [submodule "python/hx711"]
 	path = python/hx711
 	url = https://github.com/SergeyPiskunov/micropython-hx711
-[submodule "python/micropython-bmp180"]
+[submodule "python/bmp180"]
 	path = python/bmp180
 	url = https://github.com/micropython-IMU/micropython-bmp180
