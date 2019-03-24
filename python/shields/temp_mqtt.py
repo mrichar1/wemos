@@ -1,4 +1,4 @@
-from machine import deepsleep
+from machine import deepsleep, ADC
 from umqtt.robust import MQTTClient
 import time
 import network
@@ -11,6 +11,8 @@ user = "mqtt"
 password = "password"
 topic = "{}/{}".format(client_id, "sensor")
 sensor = SHT30()
+# Connect to ADC pin (A0)
+adc = ADC(0)
 
 # Wait for network up before proceeding
 wlan = network.WLAN(network.STA_IF)
@@ -23,6 +25,7 @@ client.connect(clean_session=False)
 temp, humidity = sensor.measure()
 client.publish("{}/{}".format(topic, "temperature"), str(temp), qos=1)
 client.publish("{}/{}".format(topic, "humidity"), str(humidity), qos=1)
+client.publish("{}/{}".format(topic, "moisture"), str(adc.read()), qos=0)
 
 # Uncomment this if wrapped by timeout.py
 #deepsleep()
