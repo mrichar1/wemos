@@ -1,16 +1,9 @@
 # Be sure to connect GPIO16 (D0) to RST or this won't work!
-import machine
+import esp
 
-# configure RTC.ALARM0 to be able to wake the device
-rtc = machine.RTC()
-rtc.irq(trigger=rtc.ALARM0, wake=machine.DEEPSLEEP)
-
-# set RTC.ALARM0 to fire after 10 seconds (waking the device)
 seconds = 10
-rtc.alarm(rtc.ALARM0, 1000 * seconds)
-
-# put the device to sleep
-machine.deepsleep()
+# Put machine to sleep - wake = usecs
+esp.deepsleep(seconds * 1000000)
 
 # Optionally add the following to boot.py for sleep detection
 if machine.reset_cause() == machine.DEEPSLEEP_RESET:
